@@ -69,7 +69,7 @@ app.get("/recipes/:recipeId", async (req, res) => {
 //  Iteration 6 - Update a Single Recipe
 //  PUT  /recipes/:id route
 
-app.put("recipes/:recipeId", async (req, res) => {
+app.put("/recipes/:recipeId", async (req, res) => {
   try {
     const updatedRecipe = await Recipe.findByIdAndUpdate(
       req.params.recipeId,
@@ -87,7 +87,7 @@ app.put("recipes/:recipeId", async (req, res) => {
 app.delete("/recipes/:recipeId", async (req, res) => {
   try {
     const deletedRecipe = await Recipe.findByIdAndDelete(req.params.recipeId);
-    res.status(200).json(deletedRecipe);
+    res.status(204).json(deletedRecipe);
   } catch (error) {}
 });
 // Start the server
